@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-header">
+            <h1>Clubs</h1>
+            <button class="add-new-btn">Add New +</button>
+        </header>
+        <div class="search-filter-bar">
+            <input type="text" placeholder="Search here" class="search-input">
+          
+        </div>
+        <table class="customers-table">
+            <thead>
+                <tr>
+                    <th><input type="checkbox"></th>
+                    <th>Clubs name</th>
+                    <th>Club leader</th>
+                    <th>Contact</th>
+                    <th>Club Type</th>
+                    <th>Total members</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Uniten Thunders</td>
+                    <td>Aiman Fakhrullah</td>
+                    <td>019-4342903</td>
+                    <td>Sports</td>
+                    <td>49</td>
+                    <td class="status-cell">Active</td>
+                    <td>
+                        <button class="status-btn" onclick="toggleStatus(this)">Set Not Active</button>
+                        <button class="edit-btn">Edit</button>
+                        <button class="delete-btn">Delete</button>
+                    </td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+    <script src="script.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
