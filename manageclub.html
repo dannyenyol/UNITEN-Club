@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Page</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+    }
+
+    /* Sidebar styling */
+    .sidebar {
+        width: 250px;
+        background-color: #237ad2;
+        color: white;
+        height: 100vh;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .sidebar h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .sidebar a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .sidebar a:hover {
+        background-color: #34495e;
+    }
+
+    .sidebar img {
+        width: 150px; 
+        height: auto;
+        margin-bottom: 10px; 
+    }
+  </style>
+</head>
+<body>
+    <div class="sidebar">
+      <img src="/assets/images/Universiti_Tenaga_Nasional_Logo.png" alt="Admin Logo"> 
+        <h2>Admin Panel</h2>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="manageclub.html" class="active">Manage Clubs</a>
+        <a href="registerclub.html">Register Club</a>
+        <a href="#" onclick="logout()">Logout</a>
+    </div>
+  <div class="admin-container">
+    <header class="admin-header">
+      <h1>Clubs List</h1>
+      <button class="add-new-btn"
+      onclick="window.location.href='registerclub.html'">Add New +</button>
+    </header>
+    <div class="search-filter-bar">
+      <input type="text" placeholder="Search here" class="search-input" />
+    </div>
+    <table class="customers-table">
+      <thead>
+        <tr>
+          <th><input type="checkbox" /></th>
+          <th>Clubs name</th>
+          <th>Club leader</th>
+          <th>Contact</th>
+          <th>Club Type</th>
+          <th>Total members</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" /></td>
+          <td>Uniten Thunders</td>
+          <td>Aiman Fakhrullah</td>
+          <td>019-4342903</td>
+          <td>Sports</td>
+          <td>49</td>
+          <td class="status-cell">Active</td>
+          <td>
+            <button class="status-btn" onclick="toggleStatus(this)">Set Not Active</button>
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function logout() {
+        window.location.href = "login.html";
+    }
+  </script>
+</body>
+</html>
