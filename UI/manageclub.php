@@ -11,6 +11,7 @@ if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
 <html lang="en">
 
 <head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manage Clubs</title>
@@ -174,12 +175,12 @@ if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
   <div class="admin-container">
     <header class="admin-header">
       <h1>Clubs List</h1>
-      <button class="add-new-btn" onclick="window.location.href='registerclub.html'">Add New +</button>
+<button class="btn btn-success" onclick="window.location.href='registerclub.html'">Add New +</button>
     </header>
 
     <div class="search-filter-bar">
-      <input type="text" id="search-input" placeholder="Search here" class="search-input" />
-      <button id="delete-selected-btn" onclick="deleteSelectedClubs()">Delete Selected</button>
+<input type="text" id="search-input" placeholder="Search here" class="form-control w-50 mt-3" />
+<button id="delete-selected-btn" class="btn btn-danger" onclick="deleteSelectedClubs()">Delete Selected</button>
     </div>
 
     <table class="customers-table" id="clubs-table">
@@ -216,8 +217,9 @@ if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
         <input type="text" id="editClubType" name="club_type" required />
         <label>Total Members</label>
         <input type="number" id="editTotalMembers" name="total_members" required />
-        <button type="submit">Save Changes</button>
-        <button type="button" onclick="closeEditModal()">Cancel</button>
+<button type="submit" class="btn btn-primary">Save Changes</button>
+<button type="button" class="btn btn-secondary" onclick="closeEditModal()">Cancel</button>
+
       </form>
     </div>
   </div>

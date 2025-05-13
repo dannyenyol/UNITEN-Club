@@ -11,6 +11,7 @@ if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
 <html lang="en">
 
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Club</title>
@@ -83,13 +84,13 @@ if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
                 <option value="others">Others</option>
             </select>
 
-            <label for="clubLeader">Club Leader:</label>
-            <input type="text" id="clubLeader" name="clubLeaderEmail" required>
+            <label for="clubLeader">Club Leader (Email):</label>
+            <input type="text" id="clubLeaderEmail" name="clubLeaderEmail" required>
 
             <label for="ContactNumber">Contact Number:</label>
             <input type="text" id="ContactNumber" name="ContactNumber" required>
 
-            <button type="submit">Register Club</button>
+            <button type="submit" class="btn btn-primary mt-3">Register Club</button>
         </form>
 
     </div>
@@ -99,7 +100,7 @@ if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
 
             const formData = new FormData(this);
 
-            fetch("/functions/register_club.php", {
+            fetch("./function/register_club.php", {
                 method: "POST",
                 body: formData
             })

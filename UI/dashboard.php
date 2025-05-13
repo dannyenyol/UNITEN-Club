@@ -13,6 +13,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] !== $allowed_user_id) {
 <html lang="en">
 
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Page</title>
@@ -59,7 +60,6 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] !== $allowed_user_id) {
             }
         </style>
 </head>
-
 <body>
     <div class="sidebar">
         <img src="../assets/images/Universiti_Tenaga_Nasional_Logo.png" alt="Admin Logo">
@@ -70,11 +70,11 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] !== $allowed_user_id) {
         <a href="./function/logout.php">Logout</a>
     </div>
     <div class="main-content">
-        <h1>Welcome, Admin!</h1>
-        <p>We’re glad to have you here. Use the navigation menu to manage clubs, register new clubs, or view the
-            dashboard.</p>
+        <h1 class="display-5">Welcome, Admin!</h1>
+        <p class="lead">We’re glad to have you here. Use the navigation menu to manage clubs, register new clubs, or view the dashboard.</p>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

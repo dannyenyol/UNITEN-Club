@@ -17,6 +17,7 @@ $clubs = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 <html lang="en">
 
 <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Page</title>
@@ -222,7 +223,7 @@ $clubs = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                 <input type="hidden" name="club_id" id="modal-club-id">
                 <label for="email">Your Email:</label>
                 <input type="email" id="email" name="email" required>
-                <button type="submit">Register</button>
+                <button type="submit" class="btn btn-primary">Register</button>
             </form>
         </div>
     </div>
