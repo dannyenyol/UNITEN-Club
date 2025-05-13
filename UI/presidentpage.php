@@ -10,7 +10,6 @@ require_once './function/db.php';
 
 $userId = $_SESSION['user_id'];
 
-// Step 1: Get the president's club
 $clubQuery = "SELECT id, name FROM clubs WHERE leader = ?";
 $clubStmt = $conn->prepare($clubQuery);
 $clubStmt->bind_param("i", $userId);
@@ -23,7 +22,7 @@ $clubName = $clubResult['name'] ?? null;
 
 $members = [];
 if ($clubId) {
-    // Step 2: Get all users and their roles from the same club
+
     $memberQuery = "SELECT u.id, u.username, u.email, cr.role AS position
                           FROM user u
                           LEFT JOIN club_role cr ON u.id = cr.user_id AND cr.club_id = ?
@@ -34,7 +33,6 @@ if ($clubId) {
     $members = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     $stmt->close();
 
-    // Step 3: Ensure the president is the first in the array
     $presidentIndex = -1;
     foreach ($members as $key => $member) {
         if ($member['id'] == $userId) {
@@ -48,10 +46,8 @@ if ($clubId) {
         unset($members[$presidentIndex]);
         array_unshift($members, $president);
     } elseif ($presidentIndex === 0) {
-        // President is already first, no need to reorder
-    } else {
-        // President not found in the members list (shouldn't happen based on logic)
-        // Handle this case if necessary
+
+    } else {     
         error_log("President user ID not found in club members.");
     }
 }
@@ -213,30 +209,25 @@ $conn->close();
             const member = members.find(m => m.id === memberId);
             if (member) {
                 member.position = newPosition;
-                renderTable(); // Re-render the table to reflect the change immediately
+                renderTable(); 
 
-                // Send AJAX request to update_member.php
                 const xhr = new XMLHttpRequest();
-                xhr.open("POST", "./function/update_member.php"); // Make sure this path is correct
+                xhr.open("POST", "./function/update_member.php"); 
                 xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                 xhr.onload = function () {
                     if (xhr.status === 200) {
                         const response = JSON.parse(xhr.responseText);
                         if (response.success) {
                             console.log("Position updated successfully in the database.");
-                            // Optionally, you can provide visual feedback to the user here
                         } else {
                             console.error("Failed to update position in the database:", response.message);
-                            // Optionally, you can provide an error message to the user here
                         }
                     } else {
                         console.error("Error: " + xhr.status + " " + xhr.statusText);
-                        // Optionally, handle the error
                     }
                 };
                 xhr.onerror = function () {
                     console.error("Network error occurred while updating position.");
-                    // Optionally, handle the error
                 };
                 const params = "member_id=" + encodeURIComponent(memberId) + "&role=" + encodeURIComponent(newPosition);
                 xhr.send(params);
@@ -247,9 +238,9 @@ $conn->close();
             if (confirm("Are you sure you want to delete this member?")) {
                 const index = members.findIndex(m => m.id === memberId);
                 if (index !== -1) {
-                    // Use AJAX to send a request to delete_member.php
+                    
                     const xhr = new XMLHttpRequest();
-                    xhr.open("POST", "delete_member.php"); //  the correct path to your delete_member.php file
+                    xhr.open("POST", "delete_member.php"); 
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
                     xhr.onload = function () {
                         if (xhr.status === 200) {
@@ -278,7 +269,6 @@ $conn->close();
             window.location.href = "login.php";
         }
 
-        // Initial table render
         renderTable();
     </script>
 </body>

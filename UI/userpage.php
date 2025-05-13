@@ -22,7 +22,7 @@ $clubs = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     <title>Dashboard Page</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <style>
-        /* Your existing CSS stays unchanged */
+       
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -214,7 +214,6 @@ $clubs = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
         </div>
     </div>
 
-    <!-- Modal for Club Registration -->
     <div id="club-modal" class="modal" style="display: none;">
         <div class="modal-content">
             <span class="close" onclick="closeModal()">&times;</span>

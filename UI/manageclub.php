@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Redirect to login page if user is not logged in
 if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
     header("Location: login.php");
     exit;
@@ -125,7 +124,6 @@ if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
       color: white;
     }
 
-    /* Edit Modal Styling */
     #editModal {
       display: none;
       position: fixed;
@@ -203,7 +201,6 @@ if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
     </table>
   </div>
 
-  <!-- Edit Modal -->
   <div id="editModal">
     <div class="modal-content">
       <h3>Edit Club</h3>
@@ -291,7 +288,7 @@ if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
           console.log("Response received:", xhr.responseText);
           if (xhr.status === 200) {
             closeEditModal();
-            // location.reload();
+            
           } else {
             console.error("Error during request:", xhr.status, xhr.statusText);
           }

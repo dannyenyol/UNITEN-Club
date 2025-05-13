@@ -21,7 +21,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } else {
       $stmt->close();
 
-      // ✅ Hash the password securely
       $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
       $stmt = $conn->prepare("INSERT INTO user (username, email, password) VALUES (?, ?, ?)");

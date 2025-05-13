@@ -13,7 +13,7 @@
             display: flex;
         }
 
-        /* Sidebar styling */
+        
         .sidebar {
             width: 250px;
             background-color: #2c3e50;

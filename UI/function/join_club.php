@@ -17,7 +17,9 @@ if ($clubId && filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $stmt->execute();
     header("Location: ../userpage.php?success=1");
     exit;
-} else {
+} 
+
+else {
     header("Location: ../userpage.php?error=1");
     exit;
 }

@@ -17,47 +17,47 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] !== $allowed_user_id) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard Page</title>
     <link rel="stylesheet" href="../assets/css/style.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            display: flex;
-        }
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                display: flex;
+            }
 
-        /* Sidebar styling */
-        .sidebar {
-            width: 250px;
-            background-color: #237ad2;
-            color: white;
-            height: 100vh;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+            
+            .sidebar {
+                width: 250px;
+                background-color: #237ad2;
+                color: white;
+                height: 100vh;
+                padding: 20px;
+                box-sizing: border-box;
+            }
 
-        .sidebar h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+            .sidebar h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
 
-        .sidebar a {
-            color: white;
-            text-decoration: none;
-            display: block;
-            margin: 10px 0;
-            padding: 10px;
-            border-radius: 5px;
-        }
+            .sidebar a {
+                color: white;
+                text-decoration: none;
+                display: block;
+                margin: 10px 0;
+                padding: 10px;
+                border-radius: 5px;
+            }
 
-        .sidebar a:hover {
-            background-color: #34495e;
-        }
+            .sidebar a:hover {
+                background-color: #34495e;
+            }
 
-        .sidebar img {
-            width: 150px;
-            height: auto;
-            margin-bottom: 10px;
-        }
-    </style>
+            .sidebar img {
+                width: 150px;
+                height: auto;
+                margin-bottom: 10px;
+            }
+        </style>
 </head>
 
 <body>

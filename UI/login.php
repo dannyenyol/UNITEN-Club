@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $password = $_POST['password'] ?? '';
 
   if (!empty($username) && !empty($password)) {
-    // Check if the user exists
+
     $stmt = $conn->prepare("SELECT id, password, club_id FROM user WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
@@ -19,16 +19,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       $stmt->bind_result($user_id, $db_password, $club_id);
       $stmt->fetch();
 
-      // If passwords are plain text (not recommended), use direct comparison:
-      // if ($password === $db_password)
-
-      // If passwords are hashed, use password_verify (RECOMMENDED)
       if (password_verify($password, $db_password)) {
         $_SESSION['user_id'] = $user_id;
         $_SESSION['username'] = $username;
         $_SESSION['club_id'] = $club_id;
 
-        // Now check the user's role
         $role_stmt = $conn->prepare("SELECT role FROM club_role WHERE user_id = ?");
         $role_stmt->bind_param("i", $user_id);
         $role_stmt->execute();
@@ -68,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="UTF-8">
   <title>UNITEN Club Management - Login</title>
-  <link rel="stylesheet" href="../assets/css/style.css?v=3">
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 
 <body class="auth-page">

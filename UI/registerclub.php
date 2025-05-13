@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Redirect to login page if user is not logged in
 if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
     header("Location: login.php");
     exit;
@@ -15,7 +14,7 @@ if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Club</title>
-    <link rel="stylesheet" href="../assets/css/style.css?v=2"> <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="../assets/css/style.css?v=2"> 
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,7 +22,6 @@ if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
             display: flex;
         }
 
-        /* Sidebar styling */
         .sidebar {
             width: 250px;
             background-color: #237ad2;
@@ -61,7 +59,7 @@ if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
 
 <body>
     <div class="sidebar">
-        <img src="../assets/images/Universiti_Tenaga_Nasional_Logo.png" alt="Admin Logo"> <!-- Add your image here -->
+        <img src="../assets/images/Universiti_Tenaga_Nasional_Logo.png" alt="Admin Logo"> 
         <h2>Admin Panel</h2>
         <a href="./dashboard.php">Dashboard</a>
         <a href="./manageclub.php">Manage Clubs</a>
@@ -97,7 +95,7 @@ if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
     </div>
     <script>
         document.getElementById("clubForm").addEventListener("submit", function (e) {
-            e.preventDefault(); // Stop normal form submission
+            e.preventDefault(); 
 
             const formData = new FormData(this);
 

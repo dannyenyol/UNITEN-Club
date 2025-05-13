@@ -1,5 +1,5 @@
 <?php
-require_once './function/db.php'; // Corrected path
+require_once './function/db.php'; 
 
 $sql = "SELECT 
             c.id AS club_id,

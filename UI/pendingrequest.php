@@ -1,8 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 session_start();
 if (!isset($_SESSION['user_id']) || trim($_SESSION['role']) !== 'President') {
   header("Location: ./function/logout.php");
@@ -13,7 +9,6 @@ require_once './function/db.php';
 
 $userId = $_SESSION['user_id'];
 
-// Step 1: Get the club ID of the current President
 $clubQuery = "SELECT id FROM clubs WHERE leader = ?";
 $stmt = $conn->prepare($clubQuery);
 $stmt->bind_param("i", $userId);
@@ -25,7 +20,7 @@ $stmt->close();
 
 $pendingApplications = [];
 if ($clubId) {
-  // Step 2: Get pending applications for this club
+
   $query = "SELECT cr.id AS application_id, u.username, u.email, cr.created_at 
   FROM club_registrations cr
   JOIN user u ON cr.user_id = u.id
@@ -34,8 +29,8 @@ if ($clubId) {
   $stmt = $conn->prepare($query);
   $stmt->bind_param("i", $clubId);
   $stmt->execute();
-  $pendingApplications = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-  $stmt->close();
+$pendingApplications = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+$stmt->close();
 }
 
 $conn->close();
@@ -55,8 +50,7 @@ $conn->close();
       margin: 0;
       display: flex;
     }
-
-    /* Sidebar styling */
+  
     .sidebar {
       width: 250px;
       background-color: #237ad2;
@@ -90,7 +84,6 @@ $conn->close();
       margin-bottom: 10px;
     }
 
-    /* Main content styling */
     .main-content {
       flex-grow: 1;
       padding: 20px;
@@ -167,10 +160,9 @@ $conn->close();
               <td><?= htmlspecialchars($app['email']) ?></td>
               <td><?= htmlspecialchars($app['created_at']) ?></td>
               <td class="action-buttons">
-  <button class="accept-btn" onclick="handleApplication(this, 'accept')" data-id="<?= $app['application_id'] ?>">Accept</button>
-  <button class="reject-btn" onclick="handleApplication(this, 'reject')" data-id="<?= $app['application_id'] ?>">Reject</button>
-</td>
-
+                <button class="accept-btn" onclick="handleApplication(this, 'accept')" data-id="<?= $app['application_id'] ?>">Accept</button>
+                <button class="reject-btn" onclick="handleApplication(this, 'reject')" data-id="<?= $app['application_id'] ?>">Reject</button>
+              </td>
             </tr>
           <?php endforeach; ?>
         <?php else: ?>
