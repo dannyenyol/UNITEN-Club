@@ -84,7 +84,7 @@ if (!isset($_SESSION['user_id']) && $_SESSION['user_id'] == 10001) {
             </select>
 
             <label for="clubLeader">Club Leader:</label>
-            <input type="text" id="clubLeader" name="clubLeader" required>
+            <input type="text" id="clubLeader" name="clubLeaderEmail" required>
 
             <label for="ContactNumber">Contact Number:</label>
             <input type="text" id="ContactNumber" name="ContactNumber" required>
